@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Group bills</h1>
+
+<div id="group_bills">
+  <% @group_bills.each do |group_bill| %>
+    <%= render group_bill %>
+    <p>
+      <%= link_to "Show this group bill", group_bill %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New group bill", new_group_bill_path %>

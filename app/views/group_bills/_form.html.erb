@@ -1,0 +1,27 @@
+<%= form_with(model: create_group_bill) do |form| %>
+  <% if create_group_bill.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(create_group_bill.errors.count, "error") %> prohibited this create_group_bill from being saved:</h2>
+
+      <ul>
+        <% create_group_bill.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :group_id, style: "display: block" %>
+    <%= form.text_field :group_id %>
+  </div>
+
+  <div>
+    <%= form.label :bill_id, style: "display: block" %>
+    <%= form.text_field :bill_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
