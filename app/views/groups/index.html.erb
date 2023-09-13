@@ -7,6 +7,8 @@
     <%= render group %>
     <p>
       <%= link_to "Show this group", group %>
+      <%= link_to "New bill", new_group_bill_path(group.id) %>
+
     </p>
   <% end %>
 </div>

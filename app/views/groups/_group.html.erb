@@ -1,22 +1,18 @@
 <div id="<%= dom_id group %>">
   <p>
     <strong>Name:</strong>
-    <%= group.name %>
+    <img src=<%= group.icon %> alt=<%= group.name %> width="150" />
   </p>
-
   <p>
     <strong>Icon:</strong>
     <%= group.icon %>
   </p>
-
   <p>
     <strong>Description:</strong>
     <%= group.description %>
   </p>
-
   <p>
     <strong>User:</strong>
-    <%= group.user_id %>
+    <%= group.user.name %>
   </p>
-
 </div>
