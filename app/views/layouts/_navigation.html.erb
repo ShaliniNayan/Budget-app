@@ -1,0 +1,21 @@
+<header class="bg-blue px-4 py-2">
+  <nav class="d-flex justify-content-between">
+    <ul>
+      <li>
+        <% if params[:action] == 'index' && params[:controller] == 'landingpage' %>
+          <span class="fa fa-bars"></span>
+        <% else %>
+          <%= link_to root_path do %>
+            <span class="fa fa-arrow-left"></span>
+          <% end %>
+        <% end %>
+      </li>
+    </ul>
+    <div class="d-flex justify-content-between">
+      <h1><%= @title %></h1>
+      <ul>
+        <li> <span class="fa fa-search"></span></li>
+      </ul>
+    </div>
+  </nav>
+</header>
