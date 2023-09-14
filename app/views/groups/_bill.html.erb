@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="bills">
+    <% bills.order('id DESC').each do |bill| %>
+      <%= link_to group_bill_path(bill.group_id, bill) do %>
+        <div class="mb-3">
+          <div class="container-flud mx-2 px-2 bg-white border-bottom">
+            <p class="pt-2"><%= bill.name %></p>
+            <p class="pb-1 mb-0">Transactionº<%= bill.created_at.to_time.to_i %></p>
+            <span class="fa fa-calendar"></span> <span class="mx-1"><%= bill.created_at %></span>
+          </div>
+          <div class="container-flud mx-2 px-2 bg-white border-bottom">
+            <p class="py-2 m-0 d-flex justify-content-between">
+              <strong>Payment:</strong>
+              $<%= bill.amount %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

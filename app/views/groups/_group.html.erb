@@ -1,18 +1,18 @@
-<div id="<%= dom_id group %>">
-  <p>
-    <strong>Name:</strong>
-    <img src=<%= group.icon %> alt=<%= group.name %> width="150" />
-  </p>
-  <p>
-    <strong>Icon:</strong>
-    <%= group.icon %>
-  </p>
-  <p>
-    <strong>Description:</strong>
-    <%= group.description %>
-  </p>
-  <p>
-    <strong>User:</strong>
-    <%= group.user.name %>
-  </p>
+<div class="container-fluid">
+  <%= link_to group_path(group.id) do %>
+    <div class="row d-flex mb-3 bg-white py-1 mx-1 box-card">
+      <div class="row-25">
+        <img src=<%= group.icon %> alt=<%= group.name %> class="img-fluid img-thumbnail border-0" />
+      </div>
+      <div class="row-75 px-0 d-flex justify-content-between">
+        <div>
+          <p class="mb-0 mt-2"><%= group.name %></p>
+          <p><%= Date.parse(group.created_at.to_s, '%m-%d-%Y') %></p>
+        </div>
+        <div class="px-3">
+          <strong>$<%= group.bills.inject(0){ |sum, bill| sum + bill.amount.to_i } %></strong>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

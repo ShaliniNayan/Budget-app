@@ -2,10 +2,14 @@ class GroupsController < ApplicationController
   before_action :set_group, only: %i[show edit update destroy]
 
   def index
-    @groups = Group.all
+    @groups = current_user.groups.includes(:bills).all.order('id DESC')
+    @title = 'Transactions'
   end
 
-  def show; end
+  def show
+    @group = current_user.groups.includes(:bills).order('id DESC').find(params[:id])
+    @title = @group.name
+  end
 
   def new
     @group = Group.new
