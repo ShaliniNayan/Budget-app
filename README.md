@@ -65,9 +65,9 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
- - [Live Demo Link](https://.onrender.com/)
+ - [Live Demo Link](https://budget-app-shalini.onrender.com/)
 
- - [Presentation Loom Video](https://)
+ - [Presentation Loom Video](https://www.loom.com/share/1e46a33ab5e54a76926dc9e3ba31ebdd?sid=9a13d3ec-3e06-4ca9-844f-272da369e0ef)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
