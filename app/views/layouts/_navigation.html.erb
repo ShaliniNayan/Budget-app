@@ -1,21 +1,52 @@
-<header class="bg-blue px-4 py-2">
+<header class="bg-blue px-3 py-2">
   <nav class="d-flex justify-content-between">
     <ul>
       <li>
-        <% if params[:action] == 'index' && params[:controller] == 'landingpage' %>
-          <span class="fa fa-bars"></span>
+        <% if params[:action] == 'index' && params[:controller] == 'landings' || params[:action] == 'index' && params[:controller] == 'groups' %>
+          <span class="fa fa-bars toggle-menu"></span>
+          <ul class="mobile-menu">
+            <li class="d-flex justify-content-end">
+              <span class="fa fa-close toggle-menu"></span>
+            </li>
+            <% if current_user %>
+              <li>
+                <%= link_to groups_path do %>
+                  <span class="fa fa-home"></span> Home
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path do %>
+                  <span class="fa fa-sign-out"></span> Sign Out
+                <% end %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to root_path do %>
+                  <span class="fa fa-home"></span> Home
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_user_session_path do %>
+                  <span class="fa fa-sign-in"></span> Sign In
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_user_registration_path do %>
+                  <span class="fa fa-user-plus"></span> Sign Up
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
         <% else %>
-          <%= link_to root_path do %>
+          <%= link_to "javascript:history.back()" do %>
             <span class="fa fa-arrow-left"></span>
           <% end %>
         <% end %>
       </li>
     </ul>
-    <div class="d-flex justify-content-between">
-      <h1><%= @title %></h1>
-      <ul>
-        <li> <span class="fa fa-search"></span></li>
-      </ul>
-    </div>
+    <div class="text-uppercase"><%= @title %></div>
+    <ul>
+      <li> <span class="fa fa-search"></span></li>
+    </ul>
   </nav>
 </header>

@@ -1,10 +1,18 @@
 <p style="color: green"><%= notice %></p>
-
+<div class="px-3 d-flex justify-content-end mb-3">
+  Total: $<%= @group.bills.inject(0){ |sum, bill| sum + bill.amount.to_i } %>
+</div>
 <%= render @group %>
-
-<div>
-  <%= link_to "Edit this group", edit_group_path(@group) %> |
+<%= render 'bill', bills: @group.bills %>
+<div class="container">
+  <% if can? :update, @group %>
+    <%= link_to "Edit this group", edit_group_path(@group) %> |
+  <% end %>
   <%= link_to "Back to groups", groups_path %>
-
-  <%= button_to "Destroy this group", @group, method: :delete %>
+  <% if can? :destroy, @group %>
+    <%= button_to "Destroy this group", @group, method: :delete %>
+  <% end %>
+</div>
+<div class="bg-green p-3 w-100 position-absolute bottom-0">
+  <%= link_to "Add a New bill", new_group_bill_path(@group.id), class: 'btn bg-green fw-bold col-12 text-uppercase' %>
 </div>

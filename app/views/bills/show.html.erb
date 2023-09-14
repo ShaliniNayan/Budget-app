@@ -1,12 +1,8 @@
 <p style="color: green"><%= notice %></p>
-
 <%= render @bill %>
-
 <div>
-<%= link_to "Edit this bill", edit_group_bill_path(@bill.group_id, @bill) %> |
-<%= link_to "Back to bills", group_bills_path %>
-
-
-   <%= button_to "Destroy this bill", group_bill_path(@bill.group_id, @bill), method: :delete %>
-
+  <%= link_to "Back to bills", group_path(@bill.group_id) %>
+  <% if can? :destroy, @bill %>
+    <%= button_to "Destroy this bill", group_bill_path(@bill.group_id, @bill), method: :delete %>
+  <% end %>
 </div>

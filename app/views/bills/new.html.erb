@@ -1,6 +1,6 @@
-<h1>New bill</h1>
-<%= render "form", bill: @bill , group_id: @group_id %>
-<br>
-<div>
-  <%= link_to "Back to bills", group_bills_path(@group_id.to_i)%>
+<% @title = 'Add New Bill' %>
+<div class="container-fluid">
+  <div class="row">
+    <%= render "form", bill: @bill, group_id: @group_id %>
+  </div>
 </div>
