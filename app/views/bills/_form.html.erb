@@ -1,22 +1,26 @@
 <%= form_with(model: bill, url: group_bills_path) do |form| %>
   <% if bill.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
-      <ul>
-        <% bill.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="form-group">
-    <%= form.text_field :name, class: 'form-control my-3', placeholder: 'Enter name' %>
-  </div>
-  <div class="form-group">
-    <%= form.text_field :amount, class: 'form-control my-3', placeholder: 'Enter amount' %>
-    <%= form.hidden_field :group_id, {value: @group_id} %>
-  </div>
-  <div class="form-group">
-    <%= form.submit 'Save Bill', class: 'btn btn-primary btn-sm bg-blue col-12' %>
-  </div>
-<% end %>
+      <h2><%= pluralize(bill.errors.count, "error") %> prohibited this bill from being saved:
+        <h2>
+          <ul>
+            <% bill.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="form-group">
+        <%= form.text_field :name, class: 'form-control my-3', placeholder: 'Enter name' %>
+      </div>
+      <div class="form-group">
+        <%= form.text_field :amount, class: 'form-control my-3', placeholder: 'Enter amount' %>
+        <%= form.hidden_field :group_id, {value: @group_id} %>
+      </div>
+      <div class="form-group">
+        <%= form.text_area :description, class: 'form-control my-3', placeholder: 'Add description' %>
+      </div>
+      <div class="form-group">
+        <%= form.submit 'Save Bill', class: 'btn btn-primary btn-sm bg-blue col-12' %>
+      </div>
+    <% end %>

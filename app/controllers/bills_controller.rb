@@ -2,10 +2,12 @@ class BillsController < ApplicationController
   before_action :set_bill, only: %i[show edit update destroy]
 
   def index
-    @bills = Bill.all
+    @bills = current_user.bills.all
   end
 
-  def show; end
+  def show
+    @bill = current_user.bills.find(params[:id])
+  end
 
   def new
     @bill = Bill.new
@@ -56,6 +58,6 @@ class BillsController < ApplicationController
   end
 
   def bill_params
-    params.require(:bill).permit(:name, :amount, :group_id)
+    params.require(:bill).permit(:name, :amount, :group_id, :description)
   end
 end

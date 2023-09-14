@@ -6,11 +6,11 @@
       </div>
       <div class="row-75 px-0 d-flex justify-content-between">
         <div>
-          <p class="mb-0"><%= group.name %></p>
+          <p class="mb-0 mt-2"><%= group.name %></p>
           <p><%= Date.parse(group.created_at.to_s, '%m-%d-%Y') %></p>
         </div>
         <div class="px-3">
-          $<%= group.bills.inject(0){ |sum, bill| sum + bill.amount.to_i } %>
+          <strong>$<%= group.bills.inject(0){ |sum, bill| sum + bill.amount.to_i } %></strong>
         </div>
       </div>
     </div>
