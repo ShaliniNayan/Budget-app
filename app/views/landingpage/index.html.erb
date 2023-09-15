@@ -1,0 +1,19 @@
+<div class="container">
+  <section class="row text-center mt-5">
+    <h1 class="logo"><%= 'Welcome To Budget App' %></h1>
+  </section>
+  <div class="row d-flex flex-column mt-5">
+    <% if current_user %>
+      <div class="mt-5">
+        <%= link_to 'Sign Out', destroy_user_session_path, class: 'btn btn-primary bg-blue btn-sm col-12' %>
+      </div>
+    <% else %>
+      <div class="mt-5">
+        <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary bg-blue btn-sm col-12' %>
+      </div>
+      <div class="mt-3">
+        <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary bg-blue btn-sm col-12' %>
+      </div>
+    <% end %>
+  </div>
+</div>

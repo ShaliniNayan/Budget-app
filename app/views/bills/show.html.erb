@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+<div class="container-flud d-flex mx-3 bg-white p-2">
+  <div>
+    <img src=<%= @bill.group.icon %> alt=<%= @bill.group.name %> class="img-fluid img-thumbnail border-0" width="100px" />
+  </div>
+  <div>
+    <p class="mx-2"><%= @bill.name %></p>
+  </div>
+</div>
+<div class="container-flud d-flex mx-3 bg-white p-2 border-bottom">
+  <p class="mx-2"><%= @bill.description %></p>
+</div>
+<%= render @bill %>
+<div class="container-fluid d-flex mt-2">
+  <%= link_to "Back to bills", group_path(@bill.group_id), class: '' %>
+  <% if can? :destroy, @bill %>
+    <div class="mx-2">|</div>
+ <%= button_to "Delete this bill", group_bill_path(@bill.group_id, @bill), method: :delete, class: 'border-0 text-primary' %>
+  <% end %>
+</div>
